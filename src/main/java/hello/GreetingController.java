@@ -14,13 +14,16 @@ public class GreetingController {
         return "greeting";
     }
     @GetMapping("/about")
-    public String about(@RequestParam(name = "about", required = false, defaultValue = "some info ab me ;D") String about, Model model) {
+        public String about(@RequestParam(name = "about", required = false, defaultValue = "some info ab me ;D") String about, Model model) {
         model.addAttribute("about", about);
         return "about";
     }
     @GetMapping("/contacts")
-    public String contacts(@RequestParam(name = "mail"  , required = false, defaultValue = "arsenkadaev@mail.ru")String mail, Model model){
+    public String contacts(@RequestParam(name = "mail"  , required = false, defaultValue = "arsenkadaev@mail.ru")String mail,
+                           @RequestParam(name = "number"  , required = false, defaultValue = "+7(903)004-89-06")String number,
+                           Model model){
         model.addAttribute("mail", mail);
+        model.addAttribute("number", number);
         return "contacts";
     }
 
